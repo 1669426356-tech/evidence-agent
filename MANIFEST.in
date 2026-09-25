@@ -1,0 +1,14 @@
+include README.md LICENSE* CONTRIBUTING.md SECURITY.md CHANGELOG.md constraints-tested.txt
+include THIRD_PARTY_NOTICES.md
+include .env.example .gitignore .gitattributes
+recursive-include docs *.md
+recursive-include examples *.py
+recursive-include scripts *.py
+recursive-include .github *.yml
+recursive-include tests *.py
+recursive-include src *.py py.typed
+global-exclude *.pyc *.pyo
+prune .venv
+prune .git
+prune .state
+prune outputs

@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=77,<85"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "evidence-agent-framework"
+version = "0.1.0"
+description = "A domain-neutral LangGraph framework for typed evidence, explicit tool policies and case memory"
+readme = "README.md"
+authors = [{name = "hatetakename"}]
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+dependencies = [
+  "langgraph>=1.2,<2",
+  "langchain-core>=1.5,<2",
+  "pydantic>=2.13,<3",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.4,<9"]
+build = ["build>=1.2,<2"]
+
+[project.scripts]
+agent-framework-demo = "agent_framework.demo:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.setuptools.package-data]
+agent_framework = ["py.typed"]
+
+[tool.agent_framework.release]
+repository-name = "evidence-agent"
